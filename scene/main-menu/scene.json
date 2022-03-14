@@ -1,0 +1,16 @@
+{
+  "sequence": [
+    {
+      "summary": "Main menu",
+      "time": 0,
+      "type": "menu",
+      "items": [
+        {
+          "type": "button",
+          "label": "Start new game",
+          "action": "start-new-game"
+        }
+      ]
+    }
+  ]
+}
