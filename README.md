@@ -1,2 +1,1 @@
-# riim
-Race II Mars game
+The Race II Mars game
