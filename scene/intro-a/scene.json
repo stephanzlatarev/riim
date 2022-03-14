@@ -1,0 +1,15 @@
+{
+  "sequence": [
+    {
+      "summary": "Intro: NASA detects astroid RIIM",
+      "time": 0,
+      "type": "speech",
+      "actor": "Narrator",
+      "text": [
+        "On March 15, 2022 NASA reported a very large object to be heading to Earth.",
+        "The object, named RIIM, does not appear stable and its mass and trajectory cannot be determined with great precision.",
+        "Current estimations suggest 1 in 300 chance of collision with Earth in 100 years likely resulting in human extinction."
+      ]
+    }
+  ]
+}
