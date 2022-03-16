@@ -2,6 +2,7 @@
   "summary": "Intro: NASA detects astroid RIIM",
   "sequence": [
     {
+      "delay": 2500,
       "type": "button",
       "label": "Skip",
       "action": "intro-b"

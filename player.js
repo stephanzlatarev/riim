@@ -26,7 +26,13 @@ async function play(scene) {
       console.log("Skipped scene", scene.summary);
       return;
     } else if (ACTIONS[action.type]) {
-      await ACTIONS[action.type](action, start);
+      if (action.delay > 0) {
+        setTimeout(function() {
+          ACTIONS[action.type](action, start);
+        }, action.delay);
+      } else {
+        await ACTIONS[action.type](action, start);
+      }
     } else {
       console.log("Skipping action of type", action.type);
     }
