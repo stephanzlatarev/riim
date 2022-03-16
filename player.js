@@ -1,9 +1,9 @@
 import button from "./action/button.js";
-import speech from "./action/speech.js";
+import message from "./action/message.js";
 
 const ACTIONS = {
   "button": button,
-  "speech": speech,
+  "message": message,
 };
 
 let frame = 0;
