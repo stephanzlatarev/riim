@@ -23,7 +23,7 @@ async function play(scene) {
     if (ACTIONS[action.type] && (current === frame)) {
       await ACTIONS[action.type](action, start);
     } else {
-      console.log("Skipping action of type:", action.type);
+      console.log("Skipping action of type", action.type, "in scene", scene.summary);
     }
   }
 }
