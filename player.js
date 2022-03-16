@@ -1,28 +1,15 @@
-let scene = 0;
-
-const SCENES = [
-  "main-menu",
-  "intro-a",
-];
-const MENU = {
-  "start-new-game": 1, // intro-a
-};
 
 const ACTIONS = {
-  "menu": function(action) {
+  "menu": function(action, start) {
     const button = $("<div>")
     .css("position", "absolute").css("top", "50%").css("left", "30%").css("width", "40%")
     .css("color", "white").css("font-size", "300%")
     .css("cursor", "pointer")
     .appendTo($("body"));
     button.text(action.items[0].label);
-    return new Promise(function(resolve) {
-      button.click(function() {
-        console.log("Process action", action.items[0].action);
-        scene = MENU[action.items[0].action];
-        button.remove();
-        resolve();
-      });
+    button.click(function() {
+      console.log("Process action", action.items[0].action);
+      start(action.items[0].action);
     });
   },
 
@@ -58,22 +45,25 @@ async function load(scene) {
   return await response.json();
 }
 
-async function play(scene) {
-  if (!scene || !scene.sequence) return;
-  for (const action of scene.sequence) {
+async function play(code) {
+  for (const action of code.sequence) {
     if (ACTIONS[action.type]) {
       console.log("Playing", action.summary);
-      await ACTIONS[action.type](action);
+      await ACTIONS[action.type](action, start);
     } else {
       console.log("Skipping", action.summary);
     }
   }
 }
 
-async function loop() {
-  while (scene < SCENES.length) {
-    await play(await load(SCENES[scene++]));
-  }
+async function start(scene) {
+  // Remove the previous scene
+  $("body").empty();
+
+  // Start playing the given scene
+  await play(await load(scene));
 }
 
-$(document).ready(loop);
+$(document).ready(function() {
+  start("home");
+});
