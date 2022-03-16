@@ -1,8 +1,10 @@
 import button from "./action/button.js";
+import goto from "./action/goto.js";
 import message from "./action/message.js";
 
 const ACTIONS = {
   "button": button,
+  "goto": goto,
   "message": message,
 };
 
