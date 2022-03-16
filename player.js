@@ -1,10 +1,12 @@
-import menu from "./action/menu.js";
+import button from "./action/button.js";
 import speech from "./action/speech.js";
 
 const ACTIONS = {
-  "menu": menu,
+  "button": button,
   "speech": speech,
 };
+
+let frame = 0;
 
 async function load(scene) {
   console.log("Loading:", scene);
@@ -16,8 +18,9 @@ async function load(scene) {
 async function play(scene) {
   console.log("Scene", scene.summary);
 
+  const current = frame;
   for (const action of scene.sequence) {
-    if (ACTIONS[action.type]) {
+    if (ACTIONS[action.type] && (current === frame)) {
       await ACTIONS[action.type](action, start);
     } else {
       console.log("Skipping action of type:", action.type);
@@ -26,11 +29,15 @@ async function play(scene) {
 }
 
 async function start(scene) {
-  // Remove the previous scene
-  $("body").empty();
+  const code = await load(scene);
 
-  // Start playing the given scene
-  await play(await load(scene));
+  // Stop the previous scene
+  frame++;
+  $("body").empty();
+  speechSynthesis.cancel();
+
+  // Start the new scene
+  await play(code);
 }
 
 $(document).ready(function() {

@@ -2,15 +2,9 @@
   "summary": "Home",
   "sequence": [
     {
-      "time": 0,
-      "type": "menu",
-      "items": [
-        {
-          "type": "button",
-          "label": "Start new game",
-          "action": "intro-a"
-        }
-      ]
+      "type": "button",
+      "label": "Start new game",
+      "action": "intro-a"
     }
   ]
 }

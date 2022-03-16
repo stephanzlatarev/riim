@@ -9,17 +9,15 @@ export default async function(action) {
     .css("color", "white").css("font-size", "150%")
     .appendTo($("body"));
 
-  for (const line of action.text) {
-    console.log(action.actor, ":", line);
+  console.log(action.actor, ":", action.text);
 
-    const utterance = new SpeechSynthesisUtterance(line);
-    speechSynthesis.speak(utterance);
+  const utterance = new SpeechSynthesisUtterance(action.text);
+  speechSynthesis.speak(utterance);
 
-    await wait(1000);
-    bubble.append($("<p>").text(line));
+  await wait(1000);
+  bubble.append($("<p>").text(action.text));
 
-    await new Promise(function(resolve) {
-      utterance.addEventListener("end", resolve);
-    });
-  }
+  await new Promise(function(resolve) {
+    utterance.addEventListener("end", resolve);
+  });
 }
