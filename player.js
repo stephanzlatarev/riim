@@ -20,10 +20,13 @@ async function play(scene) {
 
   const current = frame;
   for (const action of scene.sequence) {
-    if (ACTIONS[action.type] && (current === frame)) {
+    if (current !== frame) {
+      console.log("Skipped scene", scene.summary);
+      return;
+    } else if (ACTIONS[action.type]) {
       await ACTIONS[action.type](action, start);
     } else {
-      console.log("Skipping action of type", action.type, "in scene", scene.summary);
+      console.log("Skipping action of type", action.type);
     }
   }
 }
