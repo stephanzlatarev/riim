@@ -1,7 +1,7 @@
 {
+  "summary": "Intro: NASA detects astroid RIIM",
   "sequence": [
     {
-      "summary": "Intro: NASA detects astroid RIIM",
       "time": 0,
       "type": "speech",
       "actor": "Narrator",

@@ -40,18 +40,20 @@ function wait(milliseconds) {
 }
 
 async function load(scene) {
-  console.log("Loading", scene);
+  console.log("Loading:", scene);
+
   const response = await fetch("scene/" + scene + "/scene.json");
   return await response.json();
 }
 
-async function play(code) {
-  for (const action of code.sequence) {
+async function play(scene) {
+  console.log("Scene", scene.summary);
+
+  for (const action of scene.sequence) {
     if (ACTIONS[action.type]) {
-      console.log("Playing", action.summary);
       await ACTIONS[action.type](action, start);
     } else {
-      console.log("Skipping", action.summary);
+      console.log("Skipping action of type:", action.type);
     }
   }
 }

@@ -1,7 +1,7 @@
 {
+  "summary": "Home",
   "sequence": [
     {
-      "summary": "Home",
       "time": 0,
       "type": "menu",
       "items": [
