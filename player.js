@@ -1,12 +1,3 @@
-import button from "./action/button.js";
-import goto from "./action/goto.js";
-import message from "./action/message.js";
-
-const ACTIONS = {
-  "button": button,
-  "goto": goto,
-  "message": message,
-};
 
 let frame = 0;
 
@@ -25,16 +16,16 @@ async function play(scene) {
     if (current !== frame) {
       console.log("Skipped scene", scene.summary);
       return;
-    } else if (ACTIONS[action.type]) {
-      if (action.delay > 0) {
-        setTimeout(function() {
-          ACTIONS[action.type](action, start);
-        }, action.delay);
-      } else {
-        await ACTIONS[action.type](action, start);
-      }
+    }
+
+    const module = await import(`./action/${action.type}.js`);
+
+    if (action.delay > 0) {
+      setTimeout(function() {
+        module.default(action, start);
+      }, action.delay);
     } else {
-      console.log("Skipping action of type", action.type);
+      await module.default(action, start);
     }
   }
 }
