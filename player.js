@@ -1,5 +1,6 @@
 
 let frame = 0;
+let cleaners = [];
 
 async function load(scene) {
   console.log("Loading:", scene);
@@ -20,6 +21,10 @@ async function play(scene) {
 
     const module = await import(`./action/${action.type}.js`);
 
+    if (module.cancel && (cleaners.indexOf(module.cancel) < 0)) {
+      cleaners.push(module.cancel);
+    }
+
     if (action.delay > 0) {
       setTimeout(function() {
         module.default(action, start);
@@ -36,7 +41,10 @@ async function start(scene) {
   // Stop the previous scene
   frame++;
   $("body").empty();
-  speechSynthesis.cancel();
+  while (cleaners.length) {
+    const clean = cleaners.shift();
+    await clean();
+  }
 
   // Start the new scene
   await play(code);

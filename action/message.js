@@ -3,6 +3,10 @@ function wait(milliseconds) {
   return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
+export function cancel() {
+  speechSynthesis.cancel();
+}
+
 export default async function(message) {
   const bubble = $("<div>")
     .css("position", "absolute").css("top", "50%").css("left", "30%").css("width", "60%")
