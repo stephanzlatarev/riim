@@ -6,10 +6,7 @@ export function cancel() {
 }
 
 export default function(action, start) {
-  const button = $("<div>")
-    .css("color", "white").css("font-size", "200%")
-    .css("cursor", "pointer")
-    .appendTo(buttons);
+  const button = $("<div>").addClass("button").appendTo(buttons);
 
   button.text(action.label);
 
