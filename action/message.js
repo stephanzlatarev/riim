@@ -1,9 +1,12 @@
 
+const chat = $("#chat");
+
 function wait(milliseconds) {
   return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
 export function cancel() {
+  chat.empty();
   speechSynthesis.cancel();
 }
 
@@ -11,7 +14,7 @@ export default async function(message) {
   const bubble = $("<div>")
     .css("position", "absolute").css("top", "50%").css("left", "30%").css("width", "60%")
     .css("color", "white").css("font-size", "150%")
-    .appendTo($("body"));
+    .appendTo(chat);
 
   console.log(message.actor, ":", message.text);
 

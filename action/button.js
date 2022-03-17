@@ -1,10 +1,15 @@
 
+const buttons = $("#buttons");
+
+export function cancel() {
+  buttons.empty();
+}
+
 export default function(action, start) {
   const button = $("<div>")
-    .css("position", "absolute").css("top", "30%").css("left", "30%").css("width", "40%")
-    .css("color", "white").css("font-size", "300%")
+    .css("color", "white").css("font-size", "200%")
     .css("cursor", "pointer")
-    .appendTo($("body"));
+    .appendTo(buttons);
 
   button.text(action.label);
 

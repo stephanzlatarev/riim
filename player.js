@@ -40,7 +40,6 @@ async function start(scene) {
 
   // Stop the previous scene
   frame++;
-  $("body").empty();
   while (cleaners.length) {
     const clean = cleaners.shift();
     await clean();
