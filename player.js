@@ -1,6 +1,7 @@
 
 let frame = 0;
 let cleaners = [];
+let timeouts = [];
 let screenOrientation = "landscape";
 
 async function load(scene) {
@@ -29,12 +30,26 @@ async function play(scene) {
     }
 
     if (action.delay > 0) {
-      setTimeout(function() {
+      const timeout = setTimeout(function() {
         module.default(action, start);
       }, action.delay);
+
+      timeouts.push(timeout);
     } else {
       await module.default(action, start);
     }
+  }
+}
+
+async function clear() {
+  while (cleaners.length) {
+    const clean = cleaners.shift();
+    await clean();
+  }
+
+  while (timeouts.length) {
+    const timeout = timeouts.shift();
+    clearTimeout(timeout);
   }
 }
 
@@ -43,16 +58,13 @@ async function start(scene) {
 
   // Stop the previous scene
   frame++;
-  while (cleaners.length) {
-    const clean = cleaners.shift();
-    await clean();
-  }
+  await clear();
 
   // Start the new scene
   await play(code);
 }
 
-function resumeGame() {
+function resume() {
   start("home");
 }
 
@@ -66,7 +78,7 @@ function checkOrientation() {
     return false;
   } else {
     if (screenOrientation !== "landscape") {
-      resumeGame();
+      resume();
     }
 
     screenOrientation = "landscape";
