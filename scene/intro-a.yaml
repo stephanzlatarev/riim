@@ -1,6 +1,10 @@
 summary: Intro - NASA detects astroid RIIM
 
 sequence:
+
+  - type: screen
+    full: yes
+
   - type: button
     delay: 2500
     label: Skip
