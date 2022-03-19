@@ -1,0 +1,6 @@
+summary: Home
+
+sequence:
+  - type: button
+    label: Start new game
+    action: intro-a

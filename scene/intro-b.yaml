@@ -1,0 +1,6 @@
+summary: Intro - Select nation
+
+sequence:
+  - type: message
+    actor: Narrator
+    text: Select your nation

@@ -6,8 +6,10 @@ let screenOrientation = "landscape";
 async function load(scene) {
   console.log("Loading:", scene);
 
-  const response = await fetch("scene/" + scene + "/scene.json");
-  return await response.json();
+  return await fetch("scene/" + scene + ".yaml")
+    .then(response => response.blob())
+    .then(blob => blob.text())
+    .then(text => jsyaml.load(text));
 }
 
 async function play(scene) {
