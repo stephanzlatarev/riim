@@ -1,6 +1,7 @@
 
 let frame = 0;
 let cleaners = [];
+let screenOrientation = "landscape";
 
 async function load(scene) {
   console.log("Loading:", scene);
@@ -49,6 +50,32 @@ async function start(scene) {
   await play(code);
 }
 
-$(document).ready(function() {
+function resumeGame() {
   start("home");
+}
+
+function checkOrientation() {
+  if ($(window).height() > $(window).width()) {
+    if (screenOrientation !== "portrait") {
+      start("rotate-screen");
+    }
+
+    screenOrientation = "portrait";
+    return false;
+  } else {
+    if (screenOrientation !== "landscape") {
+      resumeGame();
+    }
+
+    screenOrientation = "landscape";
+    return true;
+  }  
+}
+
+$(window).resize(checkOrientation);
+
+$(document).ready(function() {
+  if (checkOrientation()) {
+    start("home");
+  }
 });
