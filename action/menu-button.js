@@ -16,9 +16,13 @@ export default function(action, start, perform) {
 
   $("<span>").text(action.label).appendTo(button);
 
-  button.click(function() {
+  button.click(async function() {
     if (action.scene) {
       start(action.scene);
+    } else if (Array.isArray(action.action)) {
+      for (const one of action.action) {
+        await perform(one);
+      }
     } else if (action.action) {
       perform(action.action);
     }

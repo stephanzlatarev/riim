@@ -10,32 +10,40 @@ sequence:
     icon: toggle-off.svg
     label: Full screen
     action:
-      type: settings-screen
-      full: true
+      - type: settings-screen
+        full: true
+      - type: goto
+        scene: settings
 
   - type: menu-button
     condition: settings.playInFullScreen
     label: Full screen
     icon: toggle-on.svg
     action:
-      type: settings-screen
-      full: false
+      - type: settings-screen
+        full: false
+      - type: goto
+        scene: settings
 
   - type: menu-button
     condition: "!settings.speakMessagesInVoice"
     label: Speak in voice
-    icon: toggle-on.svg
+    icon: toggle-off.svg
     action:
-      type: settings-voice
-      speak: true
+      - type: settings-voice
+        speak: true
+      - type: goto
+        scene: settings
 
   - type: menu-button
     condition: settings.speakMessagesInVoice
     label: Speak in voice
     icon: toggle-on.svg
     action:
-      type: settings-voice
-      speak: false
+      - type: settings-voice
+        speak: false
+      - type: goto
+        scene: settings
 
   - type: menu-button
     label: Back
