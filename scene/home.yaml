@@ -1,6 +1,14 @@
 summary: Home
 
 sequence:
-  - type: button
+
+  - type: menu-title
+    label: "RACE II: MARS"
+
+  - type: menu-button
+    label: Resume game
+    action: home
+
+  - type: menu-button
     label: Start new game
     action: intro-a

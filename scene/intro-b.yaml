@@ -1,6 +1,18 @@
 summary: Intro - Select nation
 
 sequence:
-  - type: message
-    actor: Narrator
-    text: Select your nation
+
+  - type: menu-title
+    label: "Select your nation:"
+
+  - type: menu-button
+    label: European Union
+    action: home
+
+  - type: menu-button
+    label: People's Republic of China
+    action: home
+
+  - type: menu-button
+    label: United States of America
+    action: home

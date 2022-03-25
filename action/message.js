@@ -6,7 +6,7 @@ function wait(milliseconds) {
 }
 
 export function cancel() {
-  chat.empty();
+  chat.empty().hide();
   speechSynthesis.cancel();
 }
 
@@ -17,7 +17,7 @@ export default async function(message) {
   speechSynthesis.speak(utterance);
 
   await wait(1000);
-  $("<div>").addClass("message").appendTo(chat).text(message.text);
+  $("<div>").addClass("message").appendTo(chat.show()).text(message.text);
 
   await new Promise(function(resolve) {
     utterance.addEventListener("end", resolve);
