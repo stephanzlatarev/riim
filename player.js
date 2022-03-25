@@ -17,6 +17,10 @@ async function load(scene) {
     .then(text => jsyaml.load(text));
 }
 
+function isConditionSatisfied(condition) {
+  return eval("const settings = JSON.parse(window.localStorage.settings); " + condition);
+}
+
 async function perform(action) {
   const module = await import(`./action/${action.type}.js`);
 
@@ -45,7 +49,9 @@ async function play(scene) {
       return;
     }
 
-    await perform(action);
+    if (!action.condition || isConditionSatisfied(action.condition)) {
+      await perform(action);
+    }
   }
 }
 

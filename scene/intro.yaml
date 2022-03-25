@@ -5,6 +5,7 @@ sequence:
   - type: turn-rewind
 
   - type: button
+    condition: settings.speakMessagesInVoice
     delay: 2500
     label: Skip
     scene: intro-select-nation
@@ -19,5 +20,12 @@ sequence:
     actor: Narrator
     text: Current estimations suggest 1 in 300 chance of collision with Earth in 100 years likely resulting in human extinction.
 
+  - type: button
+    condition: "!settings.speakMessagesInVoice"
+    delay: 1500
+    label: Continue
+    scene: intro-select-nation
+
   - type: goto
+    condition: settings.speakMessagesInVoice
     scene: intro-select-nation
