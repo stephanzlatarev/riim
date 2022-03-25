@@ -7,12 +7,12 @@ sequence:
 
   - type: menu-button
     label: European Union
-    action: home
+    action: turn
 
   - type: menu-button
     label: People's Republic of China
-    action: home
+    action: turn
 
   - type: menu-button
     label: United States of America
-    action: home
+    action: turn

@@ -1,0 +1,7 @@
+summary: Turn
+
+sequence:
+
+  - type: button
+    label: End turn
+    action: turn
