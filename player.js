@@ -1,4 +1,8 @@
 
+export let game = {
+  turn: 0,
+};
+
 let frame = 0;
 let cleaners = [];
 let timeouts = [];
@@ -13,6 +17,24 @@ async function load(scene) {
     .then(text => jsyaml.load(text));
 }
 
+async function perform(action) {
+  const module = await import(`./action/${action.type}.js`);
+
+  if (module.cancel && (cleaners.indexOf(module.cancel) < 0)) {
+    cleaners.push(module.cancel);
+  }
+
+  if (action.delay > 0) {
+    const timeout = setTimeout(function() {
+      module.default(action, start, perform);
+    }, action.delay);
+
+    timeouts.push(timeout);
+  } else {
+    await module.default(action, start, perform);
+  }
+}
+
 async function play(scene) {
   console.log("Scene", scene.summary);
 
@@ -23,21 +45,7 @@ async function play(scene) {
       return;
     }
 
-    const module = await import(`./action/${action.type}.js`);
-
-    if (module.cancel && (cleaners.indexOf(module.cancel) < 0)) {
-      cleaners.push(module.cancel);
-    }
-
-    if (action.delay > 0) {
-      const timeout = setTimeout(function() {
-        module.default(action, start);
-      }, action.delay);
-
-      timeouts.push(timeout);
-    } else {
-      await module.default(action, start);
-    }
+    await perform(action);
   }
 }
 
@@ -60,12 +68,15 @@ async function start(scene) {
   frame++;
   await clear();
 
+  // Auto-save the game variables
+  if (game.turn) {
+    window.localStorage.game = JSON.stringify(game);
+  } else {
+    game = (window.localStorage && window.localStorage.game) ? JSON.parse(window.localStorage.game) : { turn: 1 };
+  }
+
   // Start the new scene
   await play(code);
-}
-
-function resume() {
-  start("home");
 }
 
 function checkOrientation() {
@@ -78,7 +89,7 @@ function checkOrientation() {
     return false;
   } else {
     if (screenOrientation !== "landscape") {
-      resume();
+      start("turn");
     }
 
     screenOrientation = "landscape";

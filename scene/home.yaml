@@ -7,8 +7,8 @@ sequence:
 
   - type: menu-button
     label: Resume game
-    action: turn
+    scene: turn
 
   - type: menu-button
     label: Start new game
-    action: intro
+    scene: intro

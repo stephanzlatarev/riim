@@ -1,3 +1,4 @@
+import { game } from "../player.js";
 
 const stats = $("#stats");
 
@@ -8,5 +9,5 @@ export function cancel() {
 export default function(stat) {
   const display = $("<div>").addClass("stat").appendTo(stats);
 
-  display.text(stat.label + ": " + 0);
+  display.text(stat.label + ": " + game[stat.variable]);
 }

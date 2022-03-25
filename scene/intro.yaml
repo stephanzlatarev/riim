@@ -5,10 +5,12 @@ sequence:
   - type: screen
     full: yes
 
+  - type: turn-rewind
+
   - type: button
     delay: 2500
     label: Skip
-    action: intro-select-nation
+    scene: intro-select-nation
 
   - type: message
     actor: Narrator

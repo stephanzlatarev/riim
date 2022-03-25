@@ -11,6 +11,6 @@ export default function(action, start) {
   button.text(action.label);
 
   button.click(function() {
-    start(action.action);
+    start(action.scene);
   });
 }

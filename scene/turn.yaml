@@ -8,4 +8,5 @@ sequence:
 
   - type: button
     label: End turn
-    action: turn
+    action:
+      type: turn-end
