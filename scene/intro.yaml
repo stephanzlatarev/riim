@@ -8,7 +8,7 @@ sequence:
   - type: button
     delay: 2500
     label: Skip
-    action: intro-b
+    action: intro-select-nation
 
   - type: message
     actor: Narrator
@@ -21,4 +21,4 @@ sequence:
     text: Current estimations suggest 1 in 300 chance of collision with Earth in 100 years likely resulting in human extinction.
 
   - type: goto
-    scene: intro-b
+    scene: intro-select-nation

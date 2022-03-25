@@ -6,8 +6,11 @@ $(document).ready(function() {
   $("#foreground").css("position", "absolute").css("z-index", "2")
     .css("width", "100%").css("height", "100%");
 
+  $("<style type='text/css'>.stat { width: 10em; margin: 3px; padding: auto; background: rgba(0, 0, 0, 0.75); border: white 1px solid; border-radius: 4px; text-align: center; }</style>").appendTo("head");
   $("#stats").css("position", "absolute").css("z-index", "3")
-    .css("width", "100%").css("height", "3rem");
+    .css("width", "100%").css("height", "4vh")
+    .css("display", "flex").css("flex-direction", "row").css("justify-content", "flex-end")
+    .css("color", "white").css("font-family", "Tahoma").css("font-size", "2vh").css("user-select", "none");
 
   $("<style type='text/css'>.button { margin: 0.5rem; padding: 0.5rem; background: rgba(0, 0, 0, 0.75); border: white 3px solid; border-radius: 1rem; cursor: pointer; text-align: center; }</style>").appendTo("head");
   $("#buttons").css("position", "absolute").css("z-index", "4")

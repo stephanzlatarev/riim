@@ -2,6 +2,10 @@ summary: Turn
 
 sequence:
 
+  - type: stats
+    label: Turn
+    variable: turn
+
   - type: button
     label: End turn
     action: turn
