@@ -6,13 +6,16 @@ sequence:
     label: "Select your nation:"
 
   - type: menu-button
+    icon: flag-eu.svg
     label: European Union
     scene: turn
 
   - type: menu-button
+    icon: flag-china.svg
     label: People's Republic of China
     scene: turn
 
   - type: menu-button
+    icon: flag-usa.svg
     label: United States of America
     scene: turn

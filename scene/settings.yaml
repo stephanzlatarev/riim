@@ -6,25 +6,33 @@ sequence:
     label: Game settings
 
   - type: menu-button
-    label: Play in full screen
+    condition: "!settings.playInFullScreen"
+    icon: toggle-off.svg
+    label: Full screen
     action:
       type: settings-screen
       full: true
 
   - type: menu-button
-    label: Play in window
+    condition: settings.playInFullScreen
+    label: Full screen
+    icon: toggle-on.svg
     action:
       type: settings-screen
       full: false
 
   - type: menu-button
+    condition: "!settings.speakMessagesInVoice"
     label: Speak in voice
+    icon: toggle-on.svg
     action:
       type: settings-voice
       speak: true
 
   - type: menu-button
-    label: Don't speak
+    condition: settings.speakMessagesInVoice
+    label: Speak in voice
+    icon: toggle-on.svg
     action:
       type: settings-voice
       speak: false
