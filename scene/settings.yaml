@@ -1,0 +1,22 @@
+summary: Settings
+
+sequence:
+
+  - type: menu-title
+    label: Game settings
+
+  - type: menu-button
+    label: Play in full screen
+    action:
+      type: settings-screen
+      full: yes
+
+  - type: menu-button
+    label: Play in window
+    action:
+      type: settings-screen
+      full: no
+
+  - type: menu-button
+    label: Back
+    scene: home

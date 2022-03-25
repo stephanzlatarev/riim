@@ -12,3 +12,7 @@ sequence:
   - type: menu-button
     label: Start new game
     scene: intro
+
+  - type: menu-button
+    label: Settings
+    scene: settings

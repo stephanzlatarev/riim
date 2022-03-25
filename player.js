@@ -64,15 +64,20 @@ async function clear() {
 async function start(scene) {
   const code = await load(scene);
 
+  // Apply game settings if at the start of the game
+  if (frame == 1) {
+    perform({ type: "settings-screen" });
+  }
+
   // Stop the previous scene
   frame++;
   await clear();
 
   // Auto-save the game variables
-  if (game.turn) {
+  if (!window.localStorage.game || game.turn) {
     window.localStorage.game = JSON.stringify(game);
   } else {
-    game = (window.localStorage && window.localStorage.game) ? JSON.parse(window.localStorage.game) : { turn: 1 };
+    game = JSON.parse(window.localStorage.game);
   }
 
   // Start the new scene
