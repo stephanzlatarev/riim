@@ -9,13 +9,25 @@ sequence:
     label: Play in full screen
     action:
       type: settings-screen
-      full: yes
+      full: true
 
   - type: menu-button
     label: Play in window
     action:
       type: settings-screen
-      full: no
+      full: false
+
+  - type: menu-button
+    label: Speak in voice
+    action:
+      type: settings-voice
+      speak: true
+
+  - type: menu-button
+    label: Don't speak
+    action:
+      type: settings-voice
+      speak: false
 
   - type: menu-button
     label: Back

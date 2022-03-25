@@ -66,7 +66,11 @@ async function start(scene) {
 
   // Apply game settings if at the start of the game
   if (frame == 1) {
+    if (!window.localStorage.settings) {
+      window.localStorage.settings = JSON.stringify({});
+    }
     perform({ type: "settings-screen" });
+    perform({ type: "settings-voice" });
   }
 
   // Stop the previous scene
