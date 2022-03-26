@@ -45,6 +45,6 @@ sequence:
       - type: goto
         scene: settings
 
-  - type: menu-button
+  - type: button
     label: Back
     scene: home
