@@ -95,17 +95,6 @@ async function start(scene) {
 }
 
 function checkOrientation() {
-  setTimeout(function() {
-    let text = "V";
-    try { text += " 1:" + $(window).height() } catch (error) {}
-    try { text += " 2:" + $("#background").height() } catch (error) {}
-    try { text += " 2:" + $("#foreground").height() } catch (error) {}
-    perform({
-      type: "message",
-      text: text
-    });
-  }, 1000);
-
   if ($(window).height() > $(window).width()) {
     if (screenOrientation !== "portrait") {
       start("rotate-screen");
@@ -114,6 +103,10 @@ function checkOrientation() {
     screenOrientation = "portrait";
     return false;
   } else {
+    if ($("#foreground").height() > $("#background").height()) {
+      perform("settings-screen", { full: true });
+    }
+
     if (screenOrientation !== "landscape") {
       start("turn");
     }
