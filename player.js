@@ -102,11 +102,13 @@ function checkOrientation() {
 
     screenOrientation = "portrait";
     return false;
-  } else {
-    if ($("#foreground").height() > $("#background").height()) {
-      perform("settings-screen", { full: true });
-    }
+  } else if ($("#foreground").height() > $("#background").height()) {
+    perform("settings-screen", { full: true });
+    start("home");
 
+    screenOrientation = "landscape";
+    return false;
+  } else {
     if (screenOrientation !== "landscape") {
       start("turn");
     }
