@@ -1,0 +1,19 @@
+summary: Game over
+
+sequence:
+
+  - type: message
+    actor: Narrator
+    text: On March 15, 2123 RIIM hits Earth and makes it inhabitable.
+
+  - type: message
+    actor: Narrator
+    text: You didn't achieve the goals of your nation.
+
+  - type: message
+    actor: Narrator
+    text: You are fired!
+
+  - type: button
+    label: Try again
+    scene: home

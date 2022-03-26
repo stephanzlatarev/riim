@@ -1,7 +1,12 @@
 import { game } from "../player.js";
 
-export default function(_, start) {
-  game.turn++;
+const TURN_LIMIT = 5;
 
-  start("turn");
+export default function(_, start) {
+  if (game.turn < TURN_LIMIT) {
+    game.turn++;
+    start("turn");
+  } else {
+    start("game-over");
+  }
 }
