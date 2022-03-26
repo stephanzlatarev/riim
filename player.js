@@ -96,10 +96,15 @@ async function start(scene) {
 
 function checkOrientation() {
   setTimeout(function() {
+    let text = "V";
+    try { text += " 1:" + window.outerHeight } catch (error) {}
+    try { text += " 2:" + window.innerHeight } catch (error) {}
+    try { text += " 3:" + document.documentElement.clientHeight } catch (error) {}
+    try { text += " 4:" + $(window).height() } catch (error) {}
+    try { text += " 5:" + $("html").height() } catch (error) {}
     perform({
       type: "message",
-      text: "Viewport: " + window.outerHeight + " / " + window.innerHeight + " / " + document.documentElement.clientHeight
-            + " / " + $(window).height() + " / " + $("html").height()
+      text: text
     });
   }, 1000);
 
