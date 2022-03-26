@@ -67,7 +67,7 @@ async function clear() {
   }
 }
 
-async function start(scene) {
+async function start(scene, skipCheckOrientation) {
   const code = await load(scene);
 
   // Apply game settings if at the start of the game
@@ -83,6 +83,15 @@ async function start(scene) {
   frame++;
   await clear();
 
+  // Check screen orientation
+  if (!skipCheckOrientation) {
+    const current = frame;
+    await checkOrientation();
+    if (current !== frame) {
+      return;
+    }
+  }
+
   // Auto-save the game variables
   if (!window.localStorage.game || game.turn) {
     window.localStorage.game = JSON.stringify(game);
@@ -94,34 +103,29 @@ async function start(scene) {
   await play(code);
 }
 
-function checkOrientation() {
+async function checkOrientation() {
   if ($(window).height() > $(window).width()) {
     if (screenOrientation !== "portrait") {
-      start("rotate-screen");
+      await start("rotate-screen", "skipCheckOrientation");
     }
 
     screenOrientation = "portrait";
-    return false;
   } else if ($("#foreground").height() > $("#background").height()) {
     perform({ type: "settings-screen", full: true });
-    start("home");
+    await start("home", "skipCheckOrientation");
 
     screenOrientation = "landscape";
-    return false;
   } else {
     if (screenOrientation !== "landscape") {
-      start("turn");
+      await start("home", "skipCheckOrientation");
     }
 
     screenOrientation = "landscape";
-    return true;
   }  
 }
 
 $(window).resize(checkOrientation);
 
 $(document).ready(function() {
-  if (checkOrientation()) {
-    start("home");
-  }
+  start("home");
 });
