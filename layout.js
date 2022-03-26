@@ -5,11 +5,11 @@ const TEXT_FONT_SIZE = "2.75vh";
 const BLOCK_STYLE = "width: 10em; margin: 1vh 2vh 0 0; padding: 0.25em 0px; background: rgba(0, 0, 0, 0.75); text-align: center;";
 
 $(document).ready(function() {
-  $("#background").css("position", "fixed").css("z-index", "1")
+  $("#background").css("position", "absolute").css("z-index", "1")
     .css("width", "100%").css("height", "100%");
 
   $("#foreground").css("position", "fixed").css("z-index", "2")
-    .css("width", "100%").css("height", "100%");
+    .css("width", "100vw").css("height", "100vh");
 
   $("<style type='text/css'>.stat { " + BLOCK_STYLE + " border: white 0.25vh dotted; border-radius: 0.2em; }</style>").appendTo("head");
   $("#stats").css("position", "fixed").css("z-index", "3")
