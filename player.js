@@ -95,6 +95,14 @@ async function start(scene) {
 }
 
 function checkOrientation() {
+  setTimeout(function() {
+    perform({
+      type: "message",
+      text: "Viewport: " + window.outerHeight + " / " + window.innerHeight + " / " + document.documentElement.clientHeight
+            + " / " + $(window).height() + " / " + $("html").height()
+    });
+  }, 1000);
+
   if ($(window).height() > $(window).width()) {
     if (screenOrientation !== "portrait") {
       start("rotate-screen");
