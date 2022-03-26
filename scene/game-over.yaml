@@ -2,6 +2,9 @@ summary: Game over
 
 sequence:
 
+  - type: background
+    image: earth-hit-by-asteroid.jpg
+
   - type: message
     actor: Narrator
     text: On March 15, 2123 RIIM hits Earth and makes it inhabitable.

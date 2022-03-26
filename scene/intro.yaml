@@ -4,6 +4,9 @@ sequence:
 
   - type: turn-rewind
 
+  - type: background
+    image: earth-from-space.jpg
+
   - type: button
     condition: settings.speakMessagesInVoice
     delay: 2500
