@@ -1,4 +1,4 @@
-import { autosave } from "../game.js";
+import { autosave } from "./game.js";
 
 let frame = 0;
 let cleaners = [];
