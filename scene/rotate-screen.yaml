@@ -1,6 +1,6 @@
 summary: Warning - Rotate screen
 
 sequence:
-  - type: warning
-    image: ./image/rotate-screen.png
-    text: Rotate your screen
+  - type: background
+    front: true
+    image: rotate-screen.png
