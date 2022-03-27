@@ -7,7 +7,7 @@ sequence:
 
   - type: message
     actor: Narrator
-    text: It doesn't seems as if you're progressing towards the goals of your nation.
+    text: It doesn't seem as if you're progressing towards the goals of your nation.
 
   - type: message
     actor: Narrator
