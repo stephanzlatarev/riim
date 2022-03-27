@@ -8,14 +8,14 @@ sequence:
   - type: menu-button
     icon: flag-eu.svg
     label: European Union
-    scene: turn
+    scene: meet-boss
 
   - type: menu-button
     icon: flag-china.svg
     label: People's Republic of China
-    scene: turn
+    scene: meet-boss
 
   - type: menu-button
     icon: flag-usa.svg
     label: United States of America
-    scene: turn
+    scene: meet-boss

@@ -9,6 +9,10 @@ function calculateProgress() {
     game.year++;
 
     game.bossConfidence -= rules.BOSS_CONFIDENCE_YEARLY_DROP;
+
+    for (const project of game.projects) {
+      game.bossConfidence += rules.BOSS_CONFIDENCE_PER_ACTIVE_PROJECT;      
+    }
   }
 
   game.turn++;
@@ -24,7 +28,7 @@ function determineState() {
   }
 
   // No special state. Continue with the usual turn
-  return "turn";
+  return "meet-boss";
 }
 
 export default function(_, start) {

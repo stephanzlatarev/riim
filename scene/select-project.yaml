@@ -1,0 +1,24 @@
+summary: Turn - Select project
+
+sequence:
+
+  - type: menu-title
+    label: "Select project:"
+
+  - type: menu-button
+    label: Build your image
+    action:
+      type: project
+      name: build-image
+      action: start
+
+  - type: menu-button
+    label: Manned mission to Mars
+    action:
+      type: project
+      name: manned-mission-to-mars
+      action: start
+
+  - type: button
+    label: Done
+    scene: turn

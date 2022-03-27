@@ -6,6 +6,7 @@ export const rules = {
   BOSS_MAX_CONFIDENCE: 1.0,
   BOSS_CONFIDENCE_YEARLY_DROP: 0.3,
   BOSS_MIN_CONFIDENCE: 0.0,
+  BOSS_CONFIDENCE_PER_ACTIVE_PROJECT: 0.1,
 };
 
 export let game = {
@@ -27,6 +28,9 @@ export let game = {
   //  1.0 - full confidence
   bossConfidence: 0.0,
 
+  // The active projects
+  projects: [],
+
 };
 
 export function autosave() {
@@ -42,4 +46,5 @@ export function reset() {
   game.year = new Date().getFullYear();
   game.scene = "home";
   game.bossConfidence = rules.BOSS_MAX_CONFIDENCE;
+  game.projects = [];
 }

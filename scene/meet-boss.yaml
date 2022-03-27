@@ -1,0 +1,26 @@
+summary: Turn - Meet boss
+
+sequence:
+
+  - type: button
+    condition: settings.speakMessagesInVoice
+    delay: 1500
+    label: Skip
+    scene: select-project
+
+  - type: message
+    actor: Boss
+    text: Your budget for this year is big.
+
+  - type: message
+    actor: Boss
+    text: Go ahead and make the most of it.
+
+  - type: button
+    condition: "!settings.speakMessagesInVoice"
+    label: Continue
+    scene: select-project
+
+  - type: goto
+    condition: settings.speakMessagesInVoice
+    scene: select-project
