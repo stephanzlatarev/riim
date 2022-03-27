@@ -1,7 +1,4 @@
-
-export let game = {
-  turn: 0,
-};
+import { autosave } from "../game.js";
 
 let frame = 0;
 let cleaners = [];
@@ -93,11 +90,7 @@ async function start(scene, skipCheckOrientation) {
   }
 
   // Auto-save the game variables
-  if (!window.localStorage.game || game.turn) {
-    window.localStorage.game = JSON.stringify(game);
-  } else {
-    game = JSON.parse(window.localStorage.game);
-  }
+  autosave();
 
   // Start the new scene
   await play(code);

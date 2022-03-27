@@ -1,8 +1,10 @@
-import { game } from "../player.js";
-
-const TURN_LIMIT = 5;
+import { game, TURN_LIMIT } from "../game.js";
 
 function calculateProgress() {
+  if (game.turn >= TURN_LIMIT) {
+    return;
+  }
+
   game.turn++;  
 }
 

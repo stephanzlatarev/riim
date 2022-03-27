@@ -1,4 +1,4 @@
-import { game } from "../player.js";
+import { game } from "../game.js";
 
 const stats = $("#stats");
 

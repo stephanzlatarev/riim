@@ -1,5 +1,5 @@
-import { game } from "../player.js";
+import { reset } from "../game.js";
 
 export default function() {
-  game.turn = 1;
+  reset();
 }
