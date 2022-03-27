@@ -1,4 +1,4 @@
-import { autosave } from "./game.js";
+import { game, autosave } from "./game.js";
 
 let frame = 0;
 let cleaners = [];
@@ -64,7 +64,11 @@ async function clear() {
   }
 }
 
-async function start(scene, skipCheckOrientation) {
+async function start(scene, isGamePaused) {
+  if (!isGamePaused) {
+    game.scene = scene;
+  }
+
   const code = await load(scene);
 
   // Apply game settings if at the start of the game
@@ -81,7 +85,7 @@ async function start(scene, skipCheckOrientation) {
   await clear();
 
   // Check screen orientation
-  if (!skipCheckOrientation) {
+  if (!isGamePaused) {
     const current = frame;
     await checkOrientation();
     if (current !== frame) {
@@ -99,18 +103,18 @@ async function start(scene, skipCheckOrientation) {
 async function checkOrientation() {
   if ($(window).height() > $(window).width()) {
     if (screenOrientation !== "portrait") {
-      await start("rotate-screen", "skipCheckOrientation");
+      await start("rotate-screen", true);
     }
 
     screenOrientation = "portrait";
   } else if ($("#foreground").height() > $("#background").height()) {
     perform({ type: "settings-screen", full: true });
-    await start("home", "skipCheckOrientation");
+    await start(game.scene, true);
 
     screenOrientation = "landscape";
   } else {
     if (screenOrientation !== "landscape") {
-      await start("home", "skipCheckOrientation");
+      await start("home", true);
     }
 
     screenOrientation = "landscape";

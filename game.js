@@ -19,6 +19,9 @@ export let game = {
   // The current year in the game
   year: 0,
 
+  // The current scene
+  scene: "home",
+
   // The confidence of your boss in you:
   //  0.0 - no confidence. You are fired!
   //  1.0 - full confidence
@@ -37,5 +40,6 @@ export function autosave() {
 export function reset() {
   game.turn = 1;
   game.year = new Date().getFullYear();
+  game.scene = "home";
   game.bossConfidence = rules.BOSS_MAX_CONFIDENCE;
 }
