@@ -15,7 +15,7 @@ function calculateProgress() {
 function determineState() {
   // Game over cases
   if (game.turn > TURN_LIMIT) {
-    return "game-over";
+    return "game-over-collision";
   }
 
   // No special state. Continue with the usual turn
