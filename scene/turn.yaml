@@ -2,6 +2,10 @@ summary: Turn
 
 sequence:
 
+  - type: background
+    front: true
+    image: world-map.svg
+
   - type: stats
     label: Year
     variable: year
