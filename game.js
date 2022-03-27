@@ -1,6 +1,12 @@
 
-export const TURN_LIMIT = 20;
-export const YEARS_PER_TURN = 5;
+export const rules = {
+  TURN_LIMIT: 20,
+  YEARS_PER_TURN: 5,
+
+  BOSS_MAX_CONFIDENCE: 1.0,
+  BOSS_CONFIDENCE_YEARLY_DROP: 0.02,
+  BOSS_MIN_CONFIDENCE: 0.0,
+};
 
 export let game = {
 
@@ -12,6 +18,11 @@ export let game = {
 
   // The current year in the game
   year: 0,
+
+  // The confidence of your boss in you:
+  //  0.0 - no confidence. You are fired!
+  //  1.0 - full confidence
+  bossConfidence: 0.0,
 
 };
 
@@ -26,4 +37,5 @@ export function autosave() {
 export function reset() {
   game.turn = 1;
   game.year = new Date().getFullYear();
+  game.bossConfidence = rules.BOSS_MAX_CONFIDENCE;
 }

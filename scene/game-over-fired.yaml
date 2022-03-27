@@ -1,0 +1,22 @@
+summary: Game over - You are fired
+
+sequence:
+
+  - type: background
+    image: you-are-fired.jpg
+
+  - type: message
+    actor: Narrator
+    text: It doesn't seems as if you're progressing towards the goals of your nation.
+
+  - type: message
+    actor: Narrator
+    text: I had enough of your poor performance.
+
+  - type: message
+    actor: Narrator
+    text: You are fired!
+
+  - type: button
+    label: Try again
+    scene: home
