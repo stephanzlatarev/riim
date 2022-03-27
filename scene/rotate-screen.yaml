@@ -1,6 +1,5 @@
 summary: Warning - Rotate screen
 
 sequence:
-  - type: background
-    front: true
+  - type: foreground
     image: rotate-screen.png
