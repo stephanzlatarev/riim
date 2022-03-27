@@ -1,5 +1,6 @@
 
-export const TURN_LIMIT = 3;
+export const TURN_LIMIT = 20;
+export const YEARS_PER_TURN = 5;
 
 export let game = {
 

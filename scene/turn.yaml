@@ -3,8 +3,8 @@ summary: Turn
 sequence:
 
   - type: stats
-    label: Turn
-    variable: turn
+    label: Year
+    variable: year
 
   - type: button
     label: End turn

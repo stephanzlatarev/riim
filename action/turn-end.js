@@ -1,11 +1,15 @@
-import { game, TURN_LIMIT } from "../game.js";
+import { game, YEARS_PER_TURN, TURN_LIMIT } from "../game.js";
 
 function calculateProgress() {
-  if (game.turn >= TURN_LIMIT) {
+  if (game.turn > TURN_LIMIT) {
     return;
   }
 
-  game.turn++;  
+  for (let i = 0; i < YEARS_PER_TURN; i++) {
+    game.year++;
+  }
+
+  game.turn++;
 }
 
 function determineState() {
