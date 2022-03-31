@@ -2,7 +2,7 @@
 const ROW_SIZE = "7vh";
 const LABEL_FONT_SIZE = "3vh";
 const TEXT_FONT_SIZE = "2.75vh";
-const BLOCK_STYLE = "width: 10em; margin: 1vh 2vh 0 0; padding: 0.25em 0px; background: rgba(0, 0, 0, 0.75); text-align: center;";
+const BLOCK_STYLE = "margin: 1vh 2vh 0 0; padding: 0.25em 0px; background: rgba(0, 0, 0, 0.75); text-align: center;";
 
 $(document).ready(function() {
   $("#background").css("position", "absolute").css("z-index", "1")
@@ -11,7 +11,7 @@ $(document).ready(function() {
   $("#foreground").css("position", "fixed").css("z-index", "2")
     .css("width", "100vw").css("height", "100vh");
 
-  $("<style type='text/css'>.stat { " + BLOCK_STYLE + " border: white 0.25vh dotted; border-radius: 0.2em; }</style>").appendTo("head");
+  $("<style type='text/css'>.stat { " + BLOCK_STYLE + " width: 8em; border: white 0.25vh dotted; border-radius: 0.2em; display: flex; justify-content: space-around; }</style>").appendTo("head");
   $("#stats").css("position", "fixed").css("z-index", "3")
     .css("width", "100%").css("height", ROW_SIZE)
     .css("display", "flex").css("flex-direction", "row").css("justify-content", "flex-end")
@@ -32,7 +32,7 @@ $(document).ready(function() {
     .css("color", "white").css("font-size", TEXT_FONT_SIZE)
     .hide();
 
-  $("<style type='text/css'>.button { " + BLOCK_STYLE + " border: white 0.25vh solid; border-radius: 1em; cursor: pointer; }</style>").appendTo("head");
+  $("<style type='text/css'>.button { " + BLOCK_STYLE + " width: 10em; border: white 0.25vh solid; border-radius: 1em; cursor: pointer; }</style>").appendTo("head");
   $("#buttons").css("position", "fixed").css("z-index", "10")
     .css("top", ROW_SIZE).css("left", "calc(98vw - 10em)").css("width", "10em").css("height", "calc(100vh - " + ROW_SIZE + " - " + ROW_SIZE + ")")
     .css("display", "flex").css("flex-direction", "column").css("justify-content", "flex-end")
