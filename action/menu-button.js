@@ -19,6 +19,8 @@ export default function(action, start, perform) {
   button.click(async function() {
     if (action.scene) {
       start(action.scene);
+    } else if (typeof(action.action) === "function") {
+      await action.action();
     } else if (Array.isArray(action.action)) {
       for (const one of action.action) {
         await perform(one);

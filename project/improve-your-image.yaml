@@ -1,0 +1,11 @@
+name: Improve your image
+description: Present fancy slides. Show some protoypes. Maybe make a demonstration. Make big promises. If you manage to increase your rating, you'll have access to bigger budget.
+
+# Financial budget for the activities
+value: 10000000
+
+interactions:
+  - target: Money
+    impact: -1
+  - target: Rating
+    impact: 0.0001

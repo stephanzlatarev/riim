@@ -1,50 +1,110 @@
 
-export const rules = {
-  TURN_LIMIT: 20,
-  YEARS_PER_TURN: 5,
-
-  BOSS_MAX_CONFIDENCE: 1.0,
-  BOSS_CONFIDENCE_YEARLY_DROP: 0.3,
-  BOSS_MIN_CONFIDENCE: 0.0,
-  BOSS_CONFIDENCE_PER_ACTIVE_PROJECT: 0.1,
-};
+// Game speed is the number of years per game turn
+const SPEED = 5;
 
 export let game = {
-
-  // The current turn of the game:
-  //  0 - the game has not started yet
-  //  1 - the first turn of the game
-  //  100 - the last turn of the game
-  turn: 0,
-
-  // The current year in the game
-  year: 0,
 
   // The current scene
   scene: "home",
 
-  // The confidence of your boss in you:
-  //  0.0 - no confidence. You are fired!
-  //  1.0 - full confidence
-  bossConfidence: 0.0,
-
-  // The active projects
-  projects: [],
+  // The parts of the system
+  parts: [],
 
 };
 
 export function autosave() {
-  if (!window.localStorage.game || game.turn) {
-    window.localStorage.game = JSON.stringify(game);
-  } else {
-    game = JSON.parse(window.localStorage.game);
-  }
+  window.localStorage.game = JSON.stringify(game);
 }
 
 export function reset() {
-  game.turn = 1;
-  game.year = new Date().getFullYear();
-  game.scene = "home";
-  game.bossConfidence = rules.BOSS_MAX_CONFIDENCE;
-  game.projects = [];
+  game = {
+    scene: "home",
+    parts: [
+      { name: "Year", value: 0, max: { threshold: 100, scene: "game-over-collision" } },
+      { name: "Money", value: 1 * 1000 * 1000 * 1000 },
+      { name: "Population Earth", value: 7.5 * 1000 * 1000 * 1000 },
+      { name: "Population Mars", value: 0 },
+      {
+        name: "Rating", value: 100, min: { threshold: 0, scene: "game-over-fired" }, max: { threshold: 100 },
+        interactions: [
+          { source: "Year", impact: -2 },
+        ]
+      }
+    ]
+  };
+}
+
+function getSystemPart(name) {
+  for (const part of game.parts) {
+    if (part.name === name) {
+      return part;
+    }
+  }
+
+  return { name: name, value: 0 };
+}
+
+export function get(name) {
+  return getSystemPart(name).value;
+}
+
+function cycle() {
+  // Move one year ahead
+  getSystemPart("Year").value++;
+
+  // Run the interactions
+  const delta = {};
+  for (const part of game.parts) {
+    if (part.interactions) {
+      for (const interaction of part.interactions) {
+        const source = interaction.source ? getSystemPart(interaction.source) : part;
+        const target = interaction.target ? getSystemPart(interaction.target) : part;
+
+        if (!delta[target.name]) {
+          delta[target.name] = 0;
+        }
+
+        delta[target.name] += source.value * interaction.impact;
+      }
+    }
+  }
+  for (const part of game.parts) {
+    if (delta[part.name]) {
+      part.value += delta[part.name];
+    }
+  }
+
+  // Check the boundary conditions
+  let canChangeSceneAgain = true;
+  for (const part of game.parts) {
+    if (part.min && (part.value < part.min.threshold)) {
+      part.value = part.min.threshold;
+
+      if (canChangeSceneAgain && part.min.scene) {
+        game.scene = part.min.scene;
+        canChangeSceneAgain = false;
+      }
+    }
+    if (part.max && (part.value > part.max.threshold)) {
+      part.value = part.max.threshold;
+
+      if (canChangeSceneAgain && part.max.scene) {
+        game.scene = part.max.scene;
+        canChangeSceneAgain = false;
+      }
+    }
+  }
+}
+
+export function turn() {
+  for (let i = 0; i < SPEED; i++) {
+    cycle();
+  }
+}
+
+// Initialize game: Resume old game if one is stored, otherwise reset to new game.
+if (window.localStorage.game) {
+  game = JSON.parse(window.localStorage.game);
+} else {
+  reset();
 }

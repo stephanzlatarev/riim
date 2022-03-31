@@ -6,8 +6,16 @@ sequence:
     image: world-map.svg
 
   - type: stats
+    label: Mars
+    variable: Population Mars
+
+  - type: stats
+    label: Rating
+    variable: Rating
+
+  - type: stats
     label: Year
-    variable: year
+    variable: Year
 
   - type: button
     label: End turn
