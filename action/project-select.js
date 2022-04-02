@@ -21,8 +21,10 @@ export default async function(_, start, perform) {
 
     perform({
       type: "menu-button", label: project.name, action: function() {
+        project.type = "project";
         game.parts.push(project);
-        start("turn")
+
+        start("plan-budget")
       }
     });
   }

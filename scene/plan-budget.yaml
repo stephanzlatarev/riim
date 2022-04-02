@@ -2,12 +2,7 @@ summary: Turn - Select project
 
 sequence:
 
-  - type: message
-    text: The budget
-
-  - type: button
-    label: New project
-    scene: select-project
+  - type: project-list
 
   - type: button
     label: Done
