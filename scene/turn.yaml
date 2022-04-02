@@ -6,6 +6,10 @@ sequence:
     image: world-map.svg
 
   - type: stats
+    label: Finance
+    variable: Money
+
+  - type: stats
     icon: stat-mars.svg
     variable: Population Mars
 

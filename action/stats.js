@@ -1,3 +1,4 @@
+import { money } from "../convert.js";
 import { get } from "../game.js";
 
 const stats = $("#stats");
@@ -18,6 +19,8 @@ export default function(stat) {
 
   if (stat.variable === "Year") {
     value += new Date().getFullYear();
+  } else if (stat.variable === "Money") {
+    value = money(value);
   }
 
   display.append($("<span>").text(label + value));
