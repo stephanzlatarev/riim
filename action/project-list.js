@@ -1,9 +1,10 @@
+import { money } from "../convert.js";
 import { game } from "../game.js";
 
 function budget(project) {
   for (const flow of project.interactions) {
     if ((flow.target === "Money") && (flow.impact < 0)) {
-      return -project.value * flow.impact;
+      return money(-project.value * flow.impact);
     }
   }
 
@@ -17,7 +18,7 @@ export default async function(_, start, perform) {
   for (const part of game.parts) {
     if (part.type === "project") {
       hasProjects = true;
-      perform({ type: "menu-button", label: part.name + " " + budget(part) });
+      perform({ type: "menu-button", label: part.name + " (" + budget(part) + ")" });
     }
   }
 
