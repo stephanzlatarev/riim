@@ -1,13 +1,8 @@
 import { game } from "../game.js";
 
-const PROJECT_LIST = [
-  "improve-your-image",
-  "manned-mission-to-mars",
-];
+let projects;
 
 async function load(project) {
-  console.log("Loading:", project);
-
   return await fetch("project/" + project + ".yaml")
     .then(response => response.blob())
     .then(blob => blob.text())
@@ -17,7 +12,11 @@ async function load(project) {
 export default async function(_, start, perform) {
   perform({ type: "menu-title", label: "Select project:" });
 
-  for (const name of PROJECT_LIST) {
+  if (!projects) {
+    projects = await load("index");
+  }
+
+  for (const name of projects) {
     const project = await load(name);
 
     perform({
