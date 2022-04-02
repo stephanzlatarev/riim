@@ -1,0 +1,14 @@
+summary: Turn - Select project
+
+sequence:
+
+  - type: message
+    text: The budget
+
+  - type: button
+    label: New project
+    scene: select-project
+
+  - type: button
+    label: Done
+    scene: turn

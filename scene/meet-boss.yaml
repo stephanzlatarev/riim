@@ -6,7 +6,7 @@ sequence:
     condition: settings.speakMessagesInVoice
     delay: 1500
     label: Skip
-    scene: select-project
+    scene: plan-budget
 
   - type: message
     actor: Boss
@@ -19,8 +19,8 @@ sequence:
   - type: button
     condition: "!settings.speakMessagesInVoice"
     label: Continue
-    scene: select-project
+    scene: plan-budget
 
   - type: goto
     condition: settings.speakMessagesInVoice
-    scene: select-project
+    scene: plan-budget
