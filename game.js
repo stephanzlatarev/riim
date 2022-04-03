@@ -21,7 +21,7 @@ export function reset() {
     scene: "home",
     parts: [
       { name: "Year", value: 0, max: { threshold: 100, scene: "game-over-collision" } },
-      { name: "Money", value: 1 * 1000 * 1000 * 1000 },
+      { name: "Cash", unit: "yuan", value: 1 * 1000 * 1000 * 1000 },
       { name: "Population Earth", value: 7.5 * 1000 * 1000 * 1000 },
       { name: "Population Mars", value: 0 },
       {
@@ -34,7 +34,7 @@ export function reset() {
   };
 }
 
-function getSystemPart(name) {
+export function get(name) {
   for (const part of game.parts) {
     if (part.name === name) {
       return part;
@@ -44,21 +44,17 @@ function getSystemPart(name) {
   return { name: name, value: 0 };
 }
 
-export function get(name) {
-  return getSystemPart(name).value;
-}
-
 function cycle() {
   // Move one year ahead
-  getSystemPart("Year").value++;
+  get("Year").value++;
 
   // Run the interactions
   const delta = {};
   for (const part of game.parts) {
     if (part.interactions) {
       for (const interaction of part.interactions) {
-        const source = interaction.source ? getSystemPart(interaction.source) : part;
-        const target = interaction.target ? getSystemPart(interaction.target) : part;
+        const source = interaction.source ? get(interaction.source) : part;
+        const target = interaction.target ? get(interaction.target) : part;
 
         if (!delta[target.name]) {
           delta[target.name] = 0;

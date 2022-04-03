@@ -6,8 +6,8 @@ value: 10
 
 interactions:
 
-  # Every crew member increases the costs
-  - target: Money
+  # Every crew member increases the financial costs
+  - target: Cash
     impact: -1000000
 
   # The crew members leave the population of Earth

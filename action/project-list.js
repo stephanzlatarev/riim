@@ -3,7 +3,7 @@ import { game } from "../game.js";
 
 function budget(project) {
   for (const flow of project.interactions) {
-    if ((flow.target === "Money") && (flow.impact < 0)) {
+    if ((flow.target === "Cash") && (flow.impact < 0)) {
       return money(-project.value * flow.impact);
     }
   }

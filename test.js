@@ -16,10 +16,10 @@ function assert(property, expected, actual) {
 
 function showGameState(row) {
   console.log(row, "\t",
-    "Year:", get("Year"),
-    "Money:", get("Money"),
-    "Population:", get("Population Earth"), "->" + get("Population Mars"),
-    "Rating:", get("Rating"),
+    "Year:", get("Year").value,
+    "Cash:", get("Cash").value,
+    "Population:", get("Population Earth").value, "->" + get("Population Mars").value,
+    "Rating:", get("Rating").value,
     "\t=>", game.scene
   );
 }
@@ -39,14 +39,14 @@ const tests = {
   "Start new game": function() {
     reset();
     assert("Scene", game.scene, "home");
-    assert("Year", get("Year"), 0);
+    assert("Year", get("Year").value, 0);
   },
 
   "Only build image": function() {
     game.parts.push({
       name: "Build image", value: 10000000.0,
       interactions: [
-        { target: "Money", impact: -1 },
+        { target: "Cash", impact: -1 },
         { target: "Rating", impact: 0.0001 },
       ]
     });
@@ -65,7 +65,7 @@ const tests = {
       ]
     });
     turn();
-    assert("Population on Mars", get("Population Mars"), 50);
+    assert("Population on Mars", get("Population Mars").value, 50);
   }
 };
 

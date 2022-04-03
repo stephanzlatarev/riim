@@ -6,8 +6,7 @@ sequence:
     image: world-map.svg
 
   - type: stats
-    label: Finance
-    variable: Money
+    variable: Cash
 
   - type: stats
     icon: stat-mars.svg

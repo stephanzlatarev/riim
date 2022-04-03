@@ -9,19 +9,27 @@ export function cancel() {
 
 export default function(stat) {
   const display = $("<div>").addClass("stat").appendTo(stats);
+  const variable = get(stat.variable);
 
-  if (stat.icon) {
-    display.append($("<img>").attr("src", "./image/" + stat.icon).width("1.5em").height("1.5em"));
+  // Display the icon
+  let icon = stat.icon;
+
+  if (stat.variable === "Cash") {
+    icon = "currency-" + variable.unit + ".svg";
   }
 
-  const label = stat.label ? stat.label + ": " : "";
-  let value = get(stat.variable);
+  if (icon) {
+    display.append($("<img>").attr("src", "./image/" + icon).width("1.5em").height("1.5em"));
+  }
+
+  // Display the value
+  let value = variable.value;
 
   if (stat.variable === "Year") {
     value += new Date().getFullYear();
-  } else if (stat.variable === "Money") {
+  } else if (stat.variable === "Cash") {
     value = money(value);
   }
 
-  display.append($("<span>").text(label + value));
+  display.append($("<span>").text(value));
 }

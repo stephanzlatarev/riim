@@ -5,7 +5,7 @@ description: Present fancy slides. Show some protoypes. Maybe make a demonstrati
 value: 10000000
 
 interactions:
-  - target: Money
+  - target: Cash
     impact: -1
   - target: Rating
     impact: 0.0001
