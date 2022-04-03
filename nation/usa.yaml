@@ -1,0 +1,6 @@
+name: United States of America
+
+assets:
+  - name: Cash
+    unit: dollar
+    value: 10000000000

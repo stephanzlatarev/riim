@@ -1,0 +1,6 @@
+name: People's Republic of China
+
+assets:
+  - name: Cash
+    unit: yuan
+    value: 10000000000

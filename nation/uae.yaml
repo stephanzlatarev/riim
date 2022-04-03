@@ -1,0 +1,6 @@
+name: United Arab Emirates
+
+assets:
+  - name: Cash
+    unit: dirham
+    value: 10000000000

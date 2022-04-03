@@ -1,0 +1,6 @@
+name: European Union
+
+assets:
+  - name: Cash
+    unit: euro
+    value: 10000000000

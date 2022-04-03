@@ -21,7 +21,6 @@ export function reset() {
     scene: "home",
     parts: [
       { name: "Year", value: 0, max: { threshold: 100, scene: "game-over-collision" } },
-      { name: "Cash", unit: "yuan", value: 1 * 1000 * 1000 * 1000 },
       { name: "Population Earth", value: 7.5 * 1000 * 1000 * 1000 },
       { name: "Population Mars", value: 0 },
       {

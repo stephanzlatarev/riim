@@ -2,20 +2,4 @@ summary: Intro - Select nation
 
 sequence:
 
-  - type: menu-title
-    label: "Select your nation:"
-
-  - type: menu-button
-    icon: flag-eu.svg
-    label: European Union
-    scene: meet-boss
-
-  - type: menu-button
-    icon: flag-china.svg
-    label: People's Republic of China
-    scene: meet-boss
-
-  - type: menu-button
-    icon: flag-usa.svg
-    label: United States of America
-    scene: meet-boss
+  - type: nation-select
