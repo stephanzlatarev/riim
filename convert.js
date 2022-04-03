@@ -1,23 +1,26 @@
 
 export function money(value) {
   const abs = Math.abs(value);
-  let text = "";
+
+  let n;
+  let u;
 
   if (abs < 1000) {
-    text += abs;
+    n = abs;
+    u = "";
   } else if (abs < 1000 * 1000) {
-    text += abs / 1000;
-    text += "K";
+    n = abs / 1000;
+    u = "K";
   } else if (abs < 1000 * 1000 * 1000) {
-    text += abs / 1000 / 1000;
-    text += "M";
+    n = abs / 1000 / 1000;
+    u = "M";
   } else if (abs < 1000 * 1000 * 1000 * 1000) {
-    text += abs / 1000 / 1000 / 1000;
-    text += "B";
+    n = abs / 1000 / 1000 / 1000;
+    u = "B";
   } else {
-    text += abs / 1000 / 1000 / 1000 / 1000;
-    text += "T";
+    n = abs / 1000 / 1000 / 1000 / 1000;
+    u = "T";
   }
 
-  return text;
+  return n.toFixed(2) + u;
 }
