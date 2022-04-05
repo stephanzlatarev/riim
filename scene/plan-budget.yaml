@@ -6,4 +6,4 @@ sequence:
 
   - type: button
     label: Done
-    scene: turn
+    scene: world-earth

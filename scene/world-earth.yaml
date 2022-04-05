@@ -3,7 +3,7 @@ summary: Turn
 sequence:
 
   - type: foreground
-    image: world-map.svg
+    image: world-map-earth.jpg
 
   - type: stats
     variable: Cash

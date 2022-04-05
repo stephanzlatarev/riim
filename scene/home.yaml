@@ -7,7 +7,7 @@ sequence:
 
   - type: menu-button
     label: Resume game
-    scene: turn
+    scene: world-earth
 
   - type: menu-button
     label: Start new game
