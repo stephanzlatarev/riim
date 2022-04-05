@@ -2,6 +2,7 @@
 const VIEWS = [
   { icon: "icon-earth.png", scene: "world-earth" },
   { icon: "favicon.ico", scene: "world-mars" },
+  { icon: "icon-menu.svg", scene: "home" },
 ];
 
 const views = $("#views");
