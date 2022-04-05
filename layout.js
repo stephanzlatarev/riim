@@ -37,4 +37,10 @@ $(document).ready(function() {
     .css("top", ROW_SIZE).css("left", "calc(98vw - 10em)").css("width", "10em").css("height", "calc(100vh - " + ROW_SIZE + " - " + ROW_SIZE + ")")
     .css("display", "flex").css("flex-direction", "column").css("justify-content", "flex-end")
     .css("color", "white").css("font-family", "Tahoma").css("font-size", LABEL_FONT_SIZE).css("user-select", "none");
+
+  $("<style type='text/css'>.view { " + BLOCK_STYLE + " width: 3em; padding: 0.25em; border: white 0.25vh solid; border-radius: 0.5em; cursor: pointer; }</style>").appendTo("head");
+  $("#views").css("position", "fixed").css("z-index", "10")
+    .css("top", ROW_SIZE).css("left", "2vw").css("width", "10em").css("height", "calc(100vh - " + ROW_SIZE + " - " + ROW_SIZE + ")")
+    .css("display", "flex").css("flex-direction", "column").css("justify-content", "flex-end")
+    .css("user-select", "none");
 });

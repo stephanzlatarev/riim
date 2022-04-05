@@ -1,9 +1,9 @@
-summary: Turn
+summary: World - Mars
 
 sequence:
 
   - type: foreground
-    image: world-map-earth.jpg
+    image: world-map-mars.jpg
 
   - type: stats
     variable: Cash
