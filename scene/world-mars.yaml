@@ -6,15 +6,20 @@ sequence:
     image: world-map-mars.jpg
 
   - type: stats
-    variable: Cash
-
-  - type: stats
     icon: stat-population.svg
     variable: Population Mars
 
   - type: stats
-    icon: stat-rating.svg
-    variable: Rating
+    icon: stat-housing.svg
+    variable: Mars Housing Capacity
+
+  - type: stats
+    icon: stat-food.svg
+    variable: Mars Food Capacity
+
+  - type: stats
+    icon: stat-energy.svg
+    variable: Mars Energy Capacity
 
   - type: stats
     icon: stat-calendar.svg
