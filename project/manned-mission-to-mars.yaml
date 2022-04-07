@@ -17,3 +17,6 @@ interactions:
   # The crew members join the population of Mars
   - target: Population Mars
     impact: 1
+
+# The cost/risk ratio should correspond to:
+#  - maturity of technology

@@ -9,3 +9,7 @@ interactions:
     impact: -1
   - target: Rating
     impact: 0.0001
+
+# The cost/risk ratio should correspond to:
+#  - achievements vs expectations - the closer the nation is to achieving the objectives, the lower the cost to increasing the rating
+#  - time left to dead line - the closer it is to the asteroid impact, the higher the cost to increasing the rating
