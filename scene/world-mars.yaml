@@ -9,7 +9,7 @@ sequence:
     variable: Cash
 
   - type: stats
-    icon: stat-mars.svg
+    icon: stat-population.svg
     variable: Population Mars
 
   - type: stats

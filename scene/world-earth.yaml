@@ -9,8 +9,8 @@ sequence:
     variable: Cash
 
   - type: stats
-    icon: stat-mars.svg
-    variable: Population Mars
+    icon: stat-population.svg
+    variable: Population Earth
 
   - type: stats
     icon: stat-rating.svg

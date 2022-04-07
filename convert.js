@@ -1,5 +1,5 @@
 
-export function money(value) {
+function data(value) {
   const abs = Math.abs(value);
 
   let n;
@@ -22,5 +22,15 @@ export function money(value) {
     u = "T";
   }
 
+  return { n: n, u: u };
+}
+
+export function money(value) {
+  const { n, u } = data(value);
   return n.toFixed(2) + u;
+}
+
+export function count(value) {
+  const { n, u } = data(value);
+  return ((u === "") ? n.toFixed(0) : n.toFixed(2)) + u;
 }
