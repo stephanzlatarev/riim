@@ -1,5 +1,10 @@
 name: European Union
 
+location:
+  world: Earth
+  latitude: 54.5260
+  longitude: 15.2551
+
 assets:
   - name: Cash
     unit: euro

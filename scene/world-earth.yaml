@@ -5,6 +5,8 @@ sequence:
   - type: foreground
     image: world-map-earth.jpg
 
+  - type: locations
+
   - type: stats
     variable: Cash
 
