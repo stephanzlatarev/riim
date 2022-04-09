@@ -1,9 +1,7 @@
 name: United Arab Emirates
 
-location:
-  world: Earth
-  latitude: 23.4241
-  longitude: 53.8478
+latitude: 23.4241
+longitude: 53.8478
 
 assets:
   - name: Cash

@@ -28,7 +28,12 @@ async function init() {
     const nations = await load("index");
     for (const name of nations) {
       const nation = await load(name)
-      add(name, nation.location);
+      add(name, {
+        world: "Earth",
+        name: nation.name,
+        latitude: nation.latitude,
+        longitude: nation.longitude,
+      });
     }
     isInitialized = true;
   }

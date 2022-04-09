@@ -1,9 +1,7 @@
 name: United States of America
 
-location:
-  world: Earth
-  latitude: 37.0902
-  longitude: -95.7129
+latitude: 37.0902
+longitude: -95.7129
 
 assets:
   - name: Cash
