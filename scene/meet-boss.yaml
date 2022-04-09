@@ -2,6 +2,14 @@ summary: Turn - Meet boss
 
 sequence:
 
+  - type: stats
+    icon: stat-rating.svg
+    variable: Rating
+
+  - type: stats
+    icon: stat-calendar.svg
+    variable: Year
+
   - type: button
     condition: settings.speakMessagesInVoice
     delay: 1500
