@@ -21,7 +21,6 @@ export function reset() {
     scene: "home",
     parts: [
       { name: "Year", value: 0, max: { threshold: 100, scene: "game-over-collision" } },
-      { name: "Population Earth", value: 7.5 * 1000 * 1000 * 1000 },
       { name: "Population Mars", value: 0 },
       {
         name: "Rating", value: 100, min: { threshold: 0, scene: "game-over-fired" }, max: { threshold: 100 },

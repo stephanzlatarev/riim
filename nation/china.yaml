@@ -4,6 +4,9 @@ latitude: 35.8617
 longitude: 104.1954
 
 assets:
+  - name: Population Earth
+    unit: person
+    value: 1450000000
   - name: Cash
     unit: yuan
     value: 10000000000

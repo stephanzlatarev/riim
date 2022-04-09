@@ -4,6 +4,9 @@ latitude: 37.0902
 longitude: -95.7129
 
 assets:
+  - name: Population Earth
+    unit: person
+    value: 335500000
   - name: Cash
     unit: dollar
     value: 10000000000

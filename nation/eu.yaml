@@ -4,6 +4,9 @@ latitude: 54.5260
 longitude: 15.2551
 
 assets:
+  - name: Population Earth
+    unit: person
+    value: 447000000
   - name: Cash
     unit: euro
     value: 10000000000

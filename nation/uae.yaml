@@ -4,6 +4,9 @@ latitude: 23.4241
 longitude: 53.8478
 
 assets:
+  - name: Population Earth
+    unit: person
+    value: 9890000
   - name: Cash
     unit: dirham
     value: 10000000000
