@@ -16,17 +16,21 @@ export default function(action, start, perform) {
 
   $("<span>").text(action.label).appendTo(button);
 
-  button.click(async function() {
-    if (action.scene) {
-      start(action.scene);
-    } else if (typeof(action.action) === "function") {
-      await action.action();
-    } else if (Array.isArray(action.action)) {
-      for (const one of action.action) {
-        await perform(one);
+  if (action.out) {
+    button.css("opacity", 0.5).css("cursor", "not-allowed");
+  } else {
+    button.css("cursor", "pointer").click(async function() {
+      if (action.scene) {
+        start(action.scene);
+      } else if (typeof(action.action) === "function") {
+        await action.action();
+      } else if (Array.isArray(action.action)) {
+        for (const one of action.action) {
+          await perform(one);
+        }
+      } else if (action.action) {
+        perform(action.action);
       }
-    } else if (action.action) {
-      perform(action.action);
-    }
-  });
+    });
+  }
 }
