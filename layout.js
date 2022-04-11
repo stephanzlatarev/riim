@@ -48,6 +48,6 @@ $(document).ready(function() {
   $("#cards").css("position", "fixed").css("z-index", "10")
     .css("top", "30vh").css("left", "20vw").css("width", "60vw").css("height", "60vh")
     .css("display", "flex").css("flex-direction", "row")
-    .css("color", "white").css("font-family", "Black Ops One").css("font-size", "120%").css("user-select", "none")
+    .css("color", "white").css("font-family", "Black Ops One").css("font-size", "2.5vh").css("user-select", "none")
     .hide();
 });
