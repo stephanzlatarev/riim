@@ -5,14 +5,20 @@ sequence:
   - type: menu-title
     label: "Select difficulty:"
 
-  - type: menu-button
-    label: Easy
+  - type: card
+    title: Imminent Extinction
+    tag: Easy
+    image: card-extinction.jpg
     scene: select-nation
 
-  - type: menu-button
-    label: Normal
+  - type: card
+    title: Business as Usual
+    tag: Normal
+    image: card-pollution.jpg
     out: true
 
-  - type: menu-button
-    label: Hard
+  - type: card
+    title: Paradise on Earth
+    tag: Hard
+    image: card-paradise.jpg
     out: true

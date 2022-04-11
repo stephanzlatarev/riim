@@ -43,4 +43,11 @@ $(document).ready(function() {
     .css("top", ROW_SIZE).css("left", "2vw").css("width", "10em").css("height", "calc(100vh - " + ROW_SIZE + " - " + ROW_SIZE + ")")
     .css("display", "flex").css("flex-direction", "column").css("justify-content", "flex-end")
     .css("user-select", "none");
+
+  $("<style type='text/css'>.card { width: 20vw; height: 50vh; margin: 3vh; padding: 1em; border: white 6px solid; border-radius: 20px; cursor: pointer; }</style>").appendTo("head");
+  $("#cards").css("position", "fixed").css("z-index", "10")
+    .css("top", "30vh").css("left", "20vw").css("width", "60vw").css("height", "60vh")
+    .css("display", "flex").css("flex-direction", "row")
+    .css("color", "white").css("font-family", "Black Ops One").css("font-size", "120%").css("user-select", "none")
+    .hide();
 });
