@@ -11,7 +11,7 @@ sequence:
     condition: settings.speakMessagesInVoice
     delay: 2500
     label: Skip
-    scene: intro-select-nation
+    scene: select-nation
 
   - type: message
     actor: Narrator
@@ -27,8 +27,8 @@ sequence:
     condition: "!settings.speakMessagesInVoice"
     delay: 1500
     label: Continue
-    scene: intro-select-nation
+    scene: select-nation
 
   - type: goto
     condition: settings.speakMessagesInVoice
-    scene: intro-select-nation
+    scene: select-nation
