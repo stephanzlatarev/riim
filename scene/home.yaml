@@ -2,6 +2,9 @@ summary: Home
 
 sequence:
 
+  - type: background
+    image: earth-from-space.jpg
+
   - type: menu-title
     label: "RACE II: MARS"
 
