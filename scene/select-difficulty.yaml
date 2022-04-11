@@ -15,10 +15,10 @@ sequence:
     title: Business as Usual
     tag: Normal
     image: card-pollution.jpg
-    out: true
+    lock: Locked
 
   - type: card
     title: Paradise on Earth
     tag: Hard
     image: card-paradise.jpg
-    out: true
+    lock: Locked

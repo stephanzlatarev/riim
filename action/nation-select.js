@@ -23,7 +23,7 @@ export default async function(_, start, perform) {
       type: "menu-button",
       icon: "flag-" + name + ".svg",
       label: nation.name,
-      out: nation.out,
+      lock: nation.lock,
       action: function() {
         game.nation = nation;
 

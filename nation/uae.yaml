@@ -11,4 +11,4 @@ assets:
     unit: dirham
     value: 10000000000
 
-out: true
+lock: Locked

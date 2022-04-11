@@ -22,8 +22,8 @@ export default function(data, start) {
     $("<div>").text(data.tag.toUpperCase()).css("font-size", "150%").appendTo(card);
   }
 
-  if (data.out) {
-    $("<div>").text("LOCKED")
+  if (data.lock) {
+    $("<div>").text(data.lock.toUpperCase())
       .css("margin-top", "3em").css("text-align", "center").css("font-size", "200%")
       .appendTo(card);
 

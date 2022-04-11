@@ -16,7 +16,7 @@ export default function(action, start, perform) {
 
   $("<span>").text(action.label).appendTo(button);
 
-  if (action.out) {
+  if (action.lock) {
     button.css("opacity", 0.5).css("cursor", "not-allowed");
   } else {
     button.css("cursor", "pointer").click(async function() {

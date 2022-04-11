@@ -32,7 +32,7 @@ export default async function(_, start, perform) {
     perform({
       type: "menu-button",
       label: project.name,
-      out: isProjectActive(name),
+      lock: isProjectActive(name) ? "Active" : null,
       action: function() {
         project.type = "project";
         project.code = name;
