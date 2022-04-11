@@ -2,8 +2,6 @@ summary: Intro - NASA detects astroid RIIM
 
 sequence:
 
-  - type: turn-rewind
-
   - type: background
     image: earth-from-space.jpg
 

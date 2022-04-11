@@ -31,7 +31,7 @@ export default async function(_, start, perform) {
           game.parts.push(asset);
         }
 
-        start("meet-boss")
+        start("meet-boss");
       }
     });
   }

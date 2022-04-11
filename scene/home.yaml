@@ -14,7 +14,10 @@ sequence:
 
   - type: menu-button
     label: Start new game
-    scene: select-difficulty
+    action:
+      - type: reset
+      - type: goto
+        scene: select-difficulty
 
   - type: menu-button
     label: Settings
