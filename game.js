@@ -4,6 +4,9 @@ const SPEED = 5;
 
 export let game = {
 
+  // Player's nation
+  nation: { office: null },
+
   // The current scene
   scene: "home",
 

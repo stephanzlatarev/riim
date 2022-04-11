@@ -10,3 +10,5 @@ assets:
   - name: Cash
     unit: dirham
     value: 10000000000
+
+out: true

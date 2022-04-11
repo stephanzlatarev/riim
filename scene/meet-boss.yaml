@@ -2,6 +2,8 @@ summary: Turn - Meet boss
 
 sequence:
 
+  - type: background
+
   - type: stats
     icon: stat-rating.svg
     variable: Rating

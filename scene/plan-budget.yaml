@@ -2,6 +2,9 @@ summary: Turn - Select project
 
 sequence:
 
+  - type: background
+    image: board-room.jpg
+
   - type: project-list
 
   - type: button

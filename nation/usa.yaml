@@ -10,3 +10,5 @@ assets:
   - name: Cash
     unit: dollar
     value: 10000000000
+
+office: usa-oval-office.jpg

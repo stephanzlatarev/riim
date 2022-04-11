@@ -20,7 +20,13 @@ export default async function(_, start, perform) {
     const nation = await load(name);
 
     perform({
-      type: "menu-button", icon: "flag-" + name + ".svg", label: nation.name, action: function() {
+      type: "menu-button",
+      icon: "flag-" + name + ".svg",
+      label: nation.name,
+      out: nation.out,
+      action: function() {
+        game.nation = nation;
+
         for (const asset of nation.assets) {
           game.parts.push(asset);
         }

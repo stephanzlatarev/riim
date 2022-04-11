@@ -10,3 +10,5 @@ assets:
   - name: Cash
     unit: yuan
     value: 10000000000
+
+office: china-parliament.jpg
