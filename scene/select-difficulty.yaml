@@ -1,0 +1,18 @@
+summary: Intro - Select difficulty
+
+sequence:
+
+  - type: menu-title
+    label: "Select difficulty:"
+
+  - type: menu-button
+    label: Easy
+    scene: select-nation
+
+  - type: menu-button
+    label: Normal
+    out: true
+
+  - type: menu-button
+    label: Hard
+    out: true

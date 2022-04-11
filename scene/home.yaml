@@ -11,7 +11,7 @@ sequence:
 
   - type: menu-button
     label: Start new game
-    scene: intro
+    scene: select-difficulty
 
   - type: menu-button
     label: Settings
