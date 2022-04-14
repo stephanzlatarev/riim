@@ -5,6 +5,8 @@ sequence:
   - type: background
     image: board-room.jpg
 
+  - type: views
+
   - type: project-list
 
   - type: button

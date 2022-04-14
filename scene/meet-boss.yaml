@@ -4,6 +4,8 @@ sequence:
 
   - type: background
 
+  - type: views
+
   - type: stats
     icon: stat-rating.svg
     variable: Rating

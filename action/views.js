@@ -1,5 +1,7 @@
 
 const VIEWS = [
+  { icon: "icon-boss.svg", scene: "meet-boss" },
+  { icon: "icon-missions.svg", scene: "plan-budget" },
   { icon: "icon-earth.png", scene: "world-earth" },
   { icon: "favicon.ico", scene: "world-mars" },
   { icon: "icon-menu.svg", scene: "home" },
