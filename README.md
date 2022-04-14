@@ -43,4 +43,5 @@ The game uses materials from external sources. We thank the authors for sharing 
  - Fonts - https://www.w3schools.com/howto/howto_google_fonts.asp
  - Icons - https://freeicons.io/filter/popular/free/40/space
  - Backgrounds - https://pixabay.com/photos
+ - Charts - https://www.chartjs.org
     

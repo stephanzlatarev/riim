@@ -11,6 +11,9 @@ $(document).ready(function() {
   $("#foreground").css("position", "fixed").css("z-index", "2")
     .css("width", "100vw").css("height", "100vh");
 
+  $("#scene").css("position", "fixed").css("z-index", "3")
+    .css("top", "10vh").css("left", "5vw").css("width", "80vw").css("height", "70vh");
+
   $("<style type='text/css'>.stat { " + BLOCK_STYLE + " width: 8em; border: white 0.25vh dotted; border-radius: 0.2em; display: flex; justify-content: space-around; }</style>").appendTo("head");
   $("#stats").css("position", "fixed").css("z-index", "3")
     .css("width", "100%").css("height", ROW_SIZE)
